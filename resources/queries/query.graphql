@@ -1,0 +1,26 @@
+query Acccounts {
+    accounts {
+        id
+        name
+        balance
+        cards {
+            id
+            name
+        }
+    }
+}
+
+mutation withdraw ($withdrawal: Withdrawal) {
+    withdraw (withdrawal: $withdrawal) {
+        id
+        balance
+    }
+}
+
+subscription AccountBalanceChanged{
+    accountBalanceChanged(accountId:"00000000-0000-0000-0000-000000000000"){
+        id
+        name
+        balance
+    }
+}
