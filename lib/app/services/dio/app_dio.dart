@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'adapters/http_compress_adapter.dart';
 
 class AppDio {
-  Dio initDio() {
+  Dio init() {
     final dio = Dio();
 
     dio.httpClientAdapter = HttpCompressAdapter(

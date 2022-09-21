@@ -1,9 +1,11 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:gql_link/gql_link.dart';
 import 'package:provider/provider.dart';
 
 import '../modules/home/home_page.dart';
-import 'services/dio/dio.dart';
+import 'services/dio/app_dio.dart';
+import 'services/graphql/app_graphql.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,7 +14,10 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<Dio>(
-          create: (context) => AppDio().initDio(),
+          create: (_) => AppDio().init(),
+        ),
+        Provider<Link>(
+          create: (context) => AppGraphQLLink(context.read()).init(),
         ),
       ],
       child: MaterialApp(
