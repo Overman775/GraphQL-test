@@ -42,7 +42,11 @@ class _HomePageState extends State<HomePage> {
                 title: Text(account.name),
                 subtitle: Column(
                   children: [
-                    for (final card in accounts[index].cards) Text(card.name)
+                    for (final card in accounts[index]
+                            .cards
+                            ?.whereType<Accounts$Query$Account$Card>() ??
+                        <Accounts$Query$Account$Card>[])
+                      Text(card.name)
                   ],
                 ),
               );

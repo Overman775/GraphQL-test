@@ -37,7 +37,7 @@ class Accounts$Query$Account extends JsonSerializable with EquatableMixin {
 
   late double balance;
 
-  late List<Accounts$Query$Account$Card> cards;
+  List<Accounts$Query$Account$Card?>? cards;
 
   @override
   List<Object?> get props => [id, name, balance, cards];
@@ -52,7 +52,7 @@ class Accounts$Query extends JsonSerializable with EquatableMixin {
   factory Accounts$Query.fromJson(Map<String, dynamic> json) =>
       _$Accounts$QueryFromJson(json);
 
-  late List<Accounts$Query$Account> accounts;
+  List<Accounts$Query$Account?>? accounts;
 
   @override
   List<Object?> get props => [accounts];

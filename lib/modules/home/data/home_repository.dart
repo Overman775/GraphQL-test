@@ -14,6 +14,9 @@ class HomeRepository {
       throw Exception(result.errors);
     }
 
-    return result.data?.accounts ?? [];
+    return result.data?.accounts
+            ?.whereType<Accounts$Query$Account>()
+            .toList() ??
+        [];
   }
 }
