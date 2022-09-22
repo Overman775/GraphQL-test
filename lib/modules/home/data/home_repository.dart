@@ -19,4 +19,10 @@ class HomeRepository {
             .toList() ??
         [];
   }
+
+  Stream<AccountBalanceChanged$Subscription$Account?> streamBalance() {
+    return client
+        .stream(AccountBalanceChangedSubscription())
+        .map((event) => event.data?.accountBalanceChanged);
+  }
 }

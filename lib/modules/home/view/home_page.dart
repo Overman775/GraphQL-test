@@ -33,7 +33,22 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(),
+        appBar: AppBar(
+          title: StreamBuilder<AccountBalanceChanged$Subscription$Account?>(
+            stream: widget.repository.streamBalance(),
+            builder: (BuildContext context,
+                AsyncSnapshot<AccountBalanceChanged$Subscription$Account?>
+                    snapshot) {
+              final accountBalance = snapshot.data?.balance;
+
+              if (accountBalance != null) {
+                return Text('Balance: $accountBalance');
+              } else {
+                return const SizedBox.shrink();
+              }
+            },
+          ),
+        ),
         body: ListView.builder(
           itemCount: accounts.length,
           itemBuilder: (BuildContext context, int index) {
