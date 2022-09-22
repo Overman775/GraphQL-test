@@ -1,13 +1,15 @@
+import 'package:artemis/artemis.dart';
 import "package:dio/dio.dart";
 import "package:gql_dio_link/gql_dio_link.dart";
-import "package:gql_link/gql_link.dart";
 
-class AppGraphQLLink {
+class AppGQLClient {
   final Dio dio;
 
-  AppGraphQLLink(this.dio);
+  AppGQLClient(this.dio);
 
-  Link init() {
-    return DioLink("/graphql", client: dio);
+  ArtemisClient init() {
+    return ArtemisClient.fromLink(
+      DioLink("/graphql", client: dio),
+    );
   }
 }

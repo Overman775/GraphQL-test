@@ -8,12 +8,11 @@ import 'package:gql/ast.dart';
 part 'api.query.graphql.g.dart';
 
 @JsonSerializable(explicitToJson: true)
-class Acccounts$Query$Account$Card extends JsonSerializable
-    with EquatableMixin {
-  Acccounts$Query$Account$Card();
+class Accounts$Query$Account$Card extends JsonSerializable with EquatableMixin {
+  Accounts$Query$Account$Card();
 
-  factory Acccounts$Query$Account$Card.fromJson(Map<String, dynamic> json) =>
-      _$Acccounts$Query$Account$CardFromJson(json);
+  factory Accounts$Query$Account$Card.fromJson(Map<String, dynamic> json) =>
+      _$Accounts$Query$Account$CardFromJson(json);
 
   String? id;
 
@@ -22,15 +21,15 @@ class Acccounts$Query$Account$Card extends JsonSerializable
   @override
   List<Object?> get props => [id, name];
   @override
-  Map<String, dynamic> toJson() => _$Acccounts$Query$Account$CardToJson(this);
+  Map<String, dynamic> toJson() => _$Accounts$Query$Account$CardToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class Acccounts$Query$Account extends JsonSerializable with EquatableMixin {
-  Acccounts$Query$Account();
+class Accounts$Query$Account extends JsonSerializable with EquatableMixin {
+  Accounts$Query$Account();
 
-  factory Acccounts$Query$Account.fromJson(Map<String, dynamic> json) =>
-      _$Acccounts$Query$AccountFromJson(json);
+  factory Accounts$Query$Account.fromJson(Map<String, dynamic> json) =>
+      _$Accounts$Query$AccountFromJson(json);
 
   String? id;
 
@@ -38,27 +37,27 @@ class Acccounts$Query$Account extends JsonSerializable with EquatableMixin {
 
   late double balance;
 
-  List<Acccounts$Query$Account$Card?>? cards;
+  List<Accounts$Query$Account$Card?>? cards;
 
   @override
   List<Object?> get props => [id, name, balance, cards];
   @override
-  Map<String, dynamic> toJson() => _$Acccounts$Query$AccountToJson(this);
+  Map<String, dynamic> toJson() => _$Accounts$Query$AccountToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
-class Acccounts$Query extends JsonSerializable with EquatableMixin {
-  Acccounts$Query();
+class Accounts$Query extends JsonSerializable with EquatableMixin {
+  Accounts$Query();
 
-  factory Acccounts$Query.fromJson(Map<String, dynamic> json) =>
-      _$Acccounts$QueryFromJson(json);
+  factory Accounts$Query.fromJson(Map<String, dynamic> json) =>
+      _$Accounts$QueryFromJson(json);
 
-  List<Acccounts$Query$Account?>? accounts;
+  List<Accounts$Query$Account?>? accounts;
 
   @override
   List<Object?> get props => [accounts];
   @override
-  Map<String, dynamic> toJson() => _$Acccounts$QueryToJson(this);
+  Map<String, dynamic> toJson() => _$Accounts$QueryToJson(this);
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -153,11 +152,11 @@ class AccountBalanceChanged$Subscription extends JsonSerializable
       _$AccountBalanceChanged$SubscriptionToJson(this);
 }
 
-final ACCCOUNTS_QUERY_DOCUMENT_OPERATION_NAME = 'Acccounts';
-final ACCCOUNTS_QUERY_DOCUMENT = DocumentNode(definitions: [
+final ACCOUNTS_QUERY_DOCUMENT_OPERATION_NAME = 'Accounts';
+final ACCOUNTS_QUERY_DOCUMENT = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'Acccounts'),
+    name: NameNode(value: 'Accounts'),
     variableDefinitions: [],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -216,20 +215,20 @@ final ACCCOUNTS_QUERY_DOCUMENT = DocumentNode(definitions: [
   )
 ]);
 
-class AcccountsQuery extends GraphQLQuery<Acccounts$Query, JsonSerializable> {
-  AcccountsQuery();
+class AccountsQuery extends GraphQLQuery<Accounts$Query, JsonSerializable> {
+  AccountsQuery();
 
   @override
-  final DocumentNode document = ACCCOUNTS_QUERY_DOCUMENT;
+  final DocumentNode document = ACCOUNTS_QUERY_DOCUMENT;
 
   @override
-  final String operationName = ACCCOUNTS_QUERY_DOCUMENT_OPERATION_NAME;
+  final String operationName = ACCOUNTS_QUERY_DOCUMENT_OPERATION_NAME;
 
   @override
   List<Object?> get props => [document, operationName];
   @override
-  Acccounts$Query parse(Map<String, dynamic> json) =>
-      Acccounts$Query.fromJson(json);
+  Accounts$Query parse(Map<String, dynamic> json) =>
+      Accounts$Query.fromJson(json);
 }
 
 @JsonSerializable(explicitToJson: true)

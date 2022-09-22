@@ -1,4 +1,4 @@
-query Acccounts {
+query Accounts {
     accounts {
         id
         name

@@ -8,6 +8,7 @@ environment:
   sdk: '>=2.18.1 <3.0.0'
 
 dependencies:
+  artemis: ^7.9.0-beta
   dio: ^4.0.6
   # send PR to Dio repository https://github.com/flutterchina/dio/pull/1386
   dio_http2_adapter:
@@ -25,7 +26,6 @@ dependencies:
   provider: ^6.0.3
 
 dev_dependencies:
-  artemis: ^7.9.0-beta
   build_runner: ^2.2.1
   flutter_lints: ^2.0.0
   flutter_test:

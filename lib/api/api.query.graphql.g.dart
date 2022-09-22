@@ -7,34 +7,33 @@ part of 'api.query.graphql.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-Acccounts$Query$Account$Card _$Acccounts$Query$Account$CardFromJson(
+Accounts$Query$Account$Card _$Accounts$Query$Account$CardFromJson(
         Map<String, dynamic> json) =>
-    Acccounts$Query$Account$Card()
+    Accounts$Query$Account$Card()
       ..id = json['id'] as String?
       ..name = json['name'] as String;
 
-Map<String, dynamic> _$Acccounts$Query$Account$CardToJson(
-        Acccounts$Query$Account$Card instance) =>
+Map<String, dynamic> _$Accounts$Query$Account$CardToJson(
+        Accounts$Query$Account$Card instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
     };
 
-Acccounts$Query$Account _$Acccounts$Query$AccountFromJson(
+Accounts$Query$Account _$Accounts$Query$AccountFromJson(
         Map<String, dynamic> json) =>
-    Acccounts$Query$Account()
+    Accounts$Query$Account()
       ..id = json['id'] as String?
       ..name = json['name'] as String
       ..balance = (json['balance'] as num).toDouble()
       ..cards = (json['cards'] as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : Acccounts$Query$Account$Card.fromJson(
-                  e as Map<String, dynamic>))
+              : Accounts$Query$Account$Card.fromJson(e as Map<String, dynamic>))
           .toList();
 
-Map<String, dynamic> _$Acccounts$Query$AccountToJson(
-        Acccounts$Query$Account instance) =>
+Map<String, dynamic> _$Accounts$Query$AccountToJson(
+        Accounts$Query$Account instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
@@ -42,15 +41,15 @@ Map<String, dynamic> _$Acccounts$Query$AccountToJson(
       'cards': instance.cards?.map((e) => e?.toJson()).toList(),
     };
 
-Acccounts$Query _$Acccounts$QueryFromJson(Map<String, dynamic> json) =>
-    Acccounts$Query()
+Accounts$Query _$Accounts$QueryFromJson(Map<String, dynamic> json) =>
+    Accounts$Query()
       ..accounts = (json['accounts'] as List<dynamic>?)
           ?.map((e) => e == null
               ? null
-              : Acccounts$Query$Account.fromJson(e as Map<String, dynamic>))
+              : Accounts$Query$Account.fromJson(e as Map<String, dynamic>))
           .toList();
 
-Map<String, dynamic> _$Acccounts$QueryToJson(Acccounts$Query instance) =>
+Map<String, dynamic> _$Accounts$QueryToJson(Accounts$Query instance) =>
     <String, dynamic>{
       'accounts': instance.accounts?.map((e) => e?.toJson()).toList(),
     };
