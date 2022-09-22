@@ -33,25 +33,23 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(),
-        body: SingleChildScrollView(
-          child: ListView.builder(
-            itemCount: accounts.length,
-            itemBuilder: (BuildContext context, int index) {
-              final account = accounts[index];
-              return ListTile(
-                title: Text(account.name),
-                subtitle: Column(
-                  children: [
-                    for (final card in accounts[index]
-                            .cards
-                            ?.whereType<Accounts$Query$Account$Card>() ??
-                        <Accounts$Query$Account$Card>[])
-                      Text(card.name)
-                  ],
-                ),
-              );
-            },
-          ),
+        body: ListView.builder(
+          itemCount: accounts.length,
+          itemBuilder: (BuildContext context, int index) {
+            final account = accounts[index];
+            return ListTile(
+              title: Text(account.name),
+              subtitle: Column(
+                children: [
+                  for (final card in accounts[index]
+                          .cards
+                          ?.whereType<Accounts$Query$Account$Card>() ??
+                      <Accounts$Query$Account$Card>[])
+                    Text(card.name)
+                ],
+              ),
+            );
+          },
         ),
       );
 }
