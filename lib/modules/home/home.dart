@@ -15,7 +15,9 @@ class Home extends StatelessWidget {
           create: (context) => HomeRepository(context.read()),
         ),
       ],
-      child: const HomePage(),
+      child: HomePage(
+        repository: HomeRepository(context.read()),
+      ),
     );
   }
 }

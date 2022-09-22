@@ -1,30 +1,31 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
 import '../../../api/api.query.graphql.dart';
 import '../data/home_repository.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  final HomeRepository repository;
+
+  const HomePage({
+    Key? key,
+    required this.repository,
+  }) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  late final HomeRepository repository;
-
   List<Accounts$Query$Account> accounts = [];
 
   @override
-  void didChangeDependencies() {
-    repository = HomeRepository(context.read());
+  void initState() {
     _updateAccounts();
-    super.didChangeDependencies();
+    super.initState();
   }
 
   void _updateAccounts() async {
-    final result = await repository.fetchAccounts();
+    final result = await widget.repository.fetchAccounts();
     setState(() {
       accounts = result;
     });
