@@ -1,5 +1,5 @@
 type Query{
-    accounts: [Account]
+    accounts: [Account!]!
 }
 
 type Mutation {
@@ -14,7 +14,7 @@ type Account {
     id: ID
     name: String!
     balance: Float!
-    cards: [Card]
+    cards: [Card!]!
 }
 
 type Card {

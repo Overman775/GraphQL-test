@@ -26,10 +26,9 @@ Accounts$Query$Account _$Accounts$Query$AccountFromJson(
       ..id = json['id'] as String?
       ..name = json['name'] as String
       ..balance = (json['balance'] as num).toDouble()
-      ..cards = (json['cards'] as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Accounts$Query$Account$Card.fromJson(e as Map<String, dynamic>))
+      ..cards = (json['cards'] as List<dynamic>)
+          .map((e) =>
+              Accounts$Query$Account$Card.fromJson(e as Map<String, dynamic>))
           .toList();
 
 Map<String, dynamic> _$Accounts$Query$AccountToJson(
@@ -38,20 +37,19 @@ Map<String, dynamic> _$Accounts$Query$AccountToJson(
       'id': instance.id,
       'name': instance.name,
       'balance': instance.balance,
-      'cards': instance.cards?.map((e) => e?.toJson()).toList(),
+      'cards': instance.cards.map((e) => e.toJson()).toList(),
     };
 
 Accounts$Query _$Accounts$QueryFromJson(Map<String, dynamic> json) =>
     Accounts$Query()
-      ..accounts = (json['accounts'] as List<dynamic>?)
-          ?.map((e) => e == null
-              ? null
-              : Accounts$Query$Account.fromJson(e as Map<String, dynamic>))
+      ..accounts = (json['accounts'] as List<dynamic>)
+          .map(
+              (e) => Accounts$Query$Account.fromJson(e as Map<String, dynamic>))
           .toList();
 
 Map<String, dynamic> _$Accounts$QueryToJson(Accounts$Query instance) =>
     <String, dynamic>{
-      'accounts': instance.accounts?.map((e) => e?.toJson()).toList(),
+      'accounts': instance.accounts.map((e) => e.toJson()).toList(),
     };
 
 Withdraw$Mutation$Account _$Withdraw$Mutation$AccountFromJson(
