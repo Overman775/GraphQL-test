@@ -9,7 +9,7 @@ class AppGQLClient {
 
   ArtemisClient init() {
     return ArtemisClient.fromLink(
-      DioLink("/graphql", client: dio),
+      DioLink("http://10.0.2.2:8080/graphql", client: dio),
     );
   }
 }
