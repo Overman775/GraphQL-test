@@ -7,7 +7,7 @@ class HomeRepository {
 
   HomeRepository(this.client);
 
-  Future<List<Accounts$Query$Account?>> fetchAccounts() async {
+  Future<List<Accounts$Query$Account>> fetchAccounts() async {
     final result = await client.execute(AccountsQuery());
 
     if (result.hasErrors) {
