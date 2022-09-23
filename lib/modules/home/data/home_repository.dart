@@ -25,4 +25,11 @@ class HomeRepository {
         .stream(AccountBalanceChangedSubscription())
         .map((event) => event.data?.accountBalanceChanged);
   }
+
+  Future<void> withdraw(String id) async {
+    final args =
+        WithdrawArguments(withdrawal: Withdrawal(accountId: id, amount: 100));
+
+    await client.execute(WithdrawMutation(variables: args));
+  }
 }

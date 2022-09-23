@@ -31,6 +31,12 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void _withdraw(String? id) {
+    if (id != null) {
+      widget.repository.withdraw(id);
+    }
+  }
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
@@ -63,6 +69,12 @@ class _HomePageState extends State<HomePage> {
                       <Accounts$Query$Account$Card>[])
                     Text(card.name)
                 ],
+              ),
+              trailing: IconButton(
+                icon: const Icon(Icons.add_circle),
+                onPressed: () {
+                  _withdraw(accounts[index].id);
+                },
               ),
             );
           },
