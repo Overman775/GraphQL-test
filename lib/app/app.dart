@@ -1,4 +1,3 @@
-import 'package:artemis/artemis.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -16,8 +15,8 @@ class MyApp extends StatelessWidget {
         Provider<Dio>(
           create: (_) => AppDio().init(),
         ),
-        Provider<ArtemisClient>(
-          create: (context) => AppGQLClient(context.read()).init(),
+        Provider<AppGQLClient>(
+          create: (context) => AppGQLClient(context.read()),
         ),
       ],
       child: MaterialApp(

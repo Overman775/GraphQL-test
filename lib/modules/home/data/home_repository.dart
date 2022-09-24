@@ -1,14 +1,13 @@
-import 'package:artemis/client.dart';
-
 import '../../../api/api.query.graphql.dart';
+import '../../../app/services/graphql/app_graphql.dart';
 
 class HomeRepository {
-  final ArtemisClient client;
+  final AppGQLClient appGQLClient;
 
-  HomeRepository(this.client);
+  HomeRepository(this.appGQLClient);
 
   Future<List<Accounts$Query$Account>> fetchAccounts() async {
-    final result = await client.execute(AccountsQuery());
+    final result = await appGQLClient.client.execute(AccountsQuery());
 
     if (result.hasErrors) {
       throw Exception(result.errors);
@@ -21,7 +20,7 @@ class HomeRepository {
   }
 
   Stream<AccountBalanceChanged$Subscription$Account?> streamBalance() {
-    return client
+    return appGQLClient.socket
         .stream(AccountBalanceChangedSubscription())
         .map((event) => event.data?.accountBalanceChanged);
   }
@@ -30,6 +29,6 @@ class HomeRepository {
     final args =
         WithdrawArguments(withdrawal: Withdrawal(accountId: id, amount: 100));
 
-    await client.execute(WithdrawMutation(variables: args));
+    await appGQLClient.client.execute(WithdrawMutation(variables: args));
   }
 }

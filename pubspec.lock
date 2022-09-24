@@ -162,15 +162,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.6"
-  dio_http2_adapter:
-    dependency: "direct main"
-    description:
-      path: "plugins/http2_adapter"
-      ref: http2_proxy
-      resolved-ref: "73a4c3947332f90a4cfe18a5973ca96c602a92c0"
-      url: "https://github.com/Overman775/dio.git"
-    source: git
-    version: "2.0.0"
   equatable:
     dependency: "direct main"
     description:
@@ -300,13 +291,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.13.5"
-  http2:
-    dependency: transitive
-    description:
-      name: http2
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   http_multi_server:
     dependency: transitive
     description:
