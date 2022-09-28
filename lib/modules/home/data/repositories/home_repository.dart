@@ -1,18 +1,14 @@
 import 'package:app_api/app_api.dart';
 
-import '../../../app/services/graphql/app_graphql.dart';
+import '../../../../app/services/graphql/app_graphql.dart';
 
-class HomeRepository {
+class HomeRepositoryGraphQL {
   final AppGQLClient appGQLClient;
 
-  HomeRepository(this.appGQLClient);
+  HomeRepositoryGraphQL(this.appGQLClient);
 
   Future<List<Accounts$Query$Account>> fetchAccounts() async {
     final result = await appGQLClient.client.execute(AccountsQuery());
-
-    if (result.hasErrors) {
-      throw Exception(result.errors);
-    }
 
     return result.data?.accounts
             ?.whereType<Accounts$Query$Account>()

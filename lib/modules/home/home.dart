@@ -1,8 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:graphql_test_pos/modules/home/view/home_page.dart';
+import 'package:graphql_test_pos/modules/home/presentation/pages/home_page.dart';
 import 'package:provider/provider.dart';
 
-import 'data/home_repository.dart';
+import 'data/repositories/home_repository.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -11,12 +11,12 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        Provider<HomeRepository>(
-          create: (context) => HomeRepository(context.read()),
+        Provider<HomeRepositoryGraphQL>(
+          create: (context) => HomeRepositoryGraphQL(context.read()),
         ),
       ],
       child: HomePage(
-        repository: HomeRepository(context.read()),
+        repository: HomeRepositoryGraphQL(context.read()),
       ),
     );
   }
