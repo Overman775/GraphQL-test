@@ -1,13 +1,13 @@
 targets:
   $default:
     sources:
-      - lib/**
-      - resources/schema/schema.graphql
-      - resources/queries/query.graphql
+      - $package$
+      - lib/$lib$
+      - resources/**
     builders:
       artemis:
         options:
           schema_mapping:
             - schema: resources/schema/schema.graphql
               queries_glob: resources/queries/query.graphql
-              output: lib/api/api.query.dart
+              output: lib/src/api.query.dart
