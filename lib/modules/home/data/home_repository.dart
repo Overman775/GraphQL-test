@@ -1,4 +1,5 @@
-import '../../../api/api.query.graphql.dart';
+import 'package:app_api/app_api.dart';
+
 import '../../../app/services/graphql/app_graphql.dart';
 
 class HomeRepository {

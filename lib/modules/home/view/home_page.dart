@@ -1,6 +1,6 @@
+import 'package:app_api/app_api.dart';
 import 'package:flutter/material.dart';
 
-import '../../../api/api.query.graphql.dart';
 import '../data/home_repository.dart';
 
 class HomePage extends StatefulWidget {
