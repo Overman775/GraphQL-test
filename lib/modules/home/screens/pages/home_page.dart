@@ -1,6 +1,7 @@
-import 'package:app_api/app_api.dart';
 import 'package:flutter/material.dart';
 
+import '../../models/account.dart';
+import '../../models/account_subscription.dart';
 import '../../services/client/home_client.dart';
 
 class HomePage extends StatefulWidget {
@@ -16,7 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List<Accounts$Query$Account> accounts = [];
+  List<Account> accounts = [];
 
   @override
   void initState() {
@@ -40,11 +41,10 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: StreamBuilder<AccountBalanceChanged$Subscription$Account?>(
+          title: StreamBuilder<AccountSubscription?>(
             stream: widget.repository.streamBalance(),
             builder: (BuildContext context,
-                AsyncSnapshot<AccountBalanceChanged$Subscription$Account?>
-                    snapshot) {
+                AsyncSnapshot<AccountSubscription?> snapshot) {
               final accountBalance = snapshot.data?.balance;
 
               if (accountBalance != null) {
@@ -63,11 +63,7 @@ class _HomePageState extends State<HomePage> {
               title: Text(account.name),
               subtitle: Column(
                 children: [
-                  for (final card in accounts[index]
-                          .cards
-                          ?.whereType<Accounts$Query$Account$Card>() ??
-                      <Accounts$Query$Account$Card>[])
-                    Text(card.name)
+                  for (final card in accounts[index].cards) Text(card.name)
                 ],
               ),
               trailing: IconButton(

@@ -17,6 +17,7 @@ dependencies:
   gql_dio_link: ^0.2.2
   gql_link: ^0.4.2
   gql_websocket_link: ^0.3.3
+  meta: ^1.8.0
   provider: ^6.0.3
 
 dev_dependencies:

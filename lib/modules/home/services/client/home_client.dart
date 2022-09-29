@@ -1,9 +1,10 @@
-import 'package:app_api/app_api.dart';
+import '../../models/account.dart';
+import '../../models/account_subscription.dart';
 
 abstract class HomeClient {
-  Future<List<Accounts$Query$Account>> fetchAccounts();
+  Future<List<Account>> fetchAccounts();
 
-  Stream<AccountBalanceChanged$Subscription$Account?> streamBalance();
+  Stream<AccountSubscription?> streamBalance();
 
   Future<void> withdraw(String id);
 }
