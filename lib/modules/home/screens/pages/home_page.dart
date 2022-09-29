@@ -1,10 +1,10 @@
 import 'package:app_api/app_api.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/repositories/home_repository.dart';
+import '../../services/client/home_client.dart';
 
 class HomePage extends StatefulWidget {
-  final HomeRepositoryGraphQL repository;
+  final HomeClient repository;
 
   const HomePage({
     Key? key,
