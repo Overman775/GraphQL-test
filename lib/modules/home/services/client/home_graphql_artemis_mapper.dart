@@ -1,9 +1,9 @@
-import 'package:app_api/app_api.dart';
+import 'package:app_artemis_api/app_api.dart';
 import 'package:graphql_test_pos/modules/home/models/account.dart';
 import 'package:graphql_test_pos/modules/home/models/account_subscription.dart';
 import 'package:graphql_test_pos/modules/home/models/card.dart';
 
-class HomeGraphQLMapper {
+class HomeGraphQLArtemisMapper {
   static Account account(Accounts$Query$Account dto) {
     return Account(
       id: dto.id,
