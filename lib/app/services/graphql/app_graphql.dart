@@ -5,11 +5,11 @@ import "package:dio/dio.dart";
 import 'package:gql_dio_link/gql_dio_link.dart';
 import 'package:gql_websocket_link/gql_websocket_link.dart';
 
-class AppGQLClient {
+class AppGraphQLArtemisClient {
   late final ArtemisClient client;
   late final ArtemisClient socket;
 
-  AppGQLClient(Dio dio) {
+  AppGraphQLArtemisClient(Dio dio) {
     final dioLink = DioLink("http://$_host:8080/graphql", client: dio);
 
     client = ArtemisClient.fromLink(dioLink);

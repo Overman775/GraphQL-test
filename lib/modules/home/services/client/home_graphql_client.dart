@@ -6,10 +6,10 @@ import '../../models/account_subscription.dart';
 import 'home_client.dart';
 import 'home_graphql_mapper.dart';
 
-class HomeGraphQLClient implements HomeClient {
-  final AppGQLClient appGQLClient;
+class HomeGraphQLArtemisClient implements HomeClient {
+  final AppGraphQLArtemisClient appGQLClient;
 
-  HomeGraphQLClient(this.appGQLClient);
+  HomeGraphQLArtemisClient(this.appGQLClient);
 
   @override
   Future<List<Account>> fetchAccounts() async {
