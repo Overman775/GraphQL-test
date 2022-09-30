@@ -14,7 +14,9 @@ dependencies:
   dio: ^4.0.6
   flutter:
     sdk: flutter
+  gql: ^0.13.2-alpha+1659715356091
   gql_dio_link: ^0.2.2
+  gql_exec: ^0.4.1-alpha+1659715356108
   gql_link: ^0.4.2
   gql_websocket_link: ^0.3.3
   meta: ^1.8.0

@@ -1,3 +1,4 @@
+import 'package:artemis/client.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -15,8 +16,8 @@ class MyApp extends StatelessWidget {
         Provider<Dio>(
           create: (_) => AppDio().init(),
         ),
-        Provider<AppGraphQLArtemisClient>(
-          create: (context) => AppGraphQLArtemisClient(context.read()),
+        Provider<ArtemisClient>(
+          create: (context) => AppGraphQLArtemisClient(context.read()).client,
         ),
       ],
       child: MaterialApp(
