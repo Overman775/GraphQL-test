@@ -21,6 +21,7 @@ dependencies:
   gql_websocket_link: ^0.3.3
   meta: ^1.8.0
   provider: ^6.0.3
+  web_socket_channel: ^2.2.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
