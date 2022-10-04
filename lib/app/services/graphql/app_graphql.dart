@@ -25,9 +25,10 @@ class AppGraphQLArtemisClient {
       channelGenerator: _generateWebSocketChannel,
     );
 
-    final linkRouter = Link.route(_getLink);
+    final linkServer = Link.split(
+        (request) => _isSubscription(request), _socketLink, _dioLink);
 
-    client = ArtemisClient.fromLink(linkRouter);
+    client = ArtemisClient.fromLink(linkServer);
   }
 
   String get _host => Platform.isAndroid ? '10.0.2.2' : 'localhost';
@@ -37,13 +38,18 @@ class AppGraphQLArtemisClient {
         protocols: ['graphql-ws']);
   }
 
-  Link _getLink(Request request) {
-    final isSubscription = request.operation.document.definitions.any(
-      (definition) =>
-          definition is OperationDefinitionNode &&
-          definition.type == OperationType.subscription,
-    );
+  bool _isSubscription(Request request) {
+    final definitions = request.operation.document.definitions
+        .whereType<OperationDefinitionNode>()
+        .toList();
 
-    return isSubscription ? _socketLink : _dioLink;
+    if (request.operation.operationName != null) {
+      definitions.removeWhere(
+        (node) => node.name?.value != request.operation.operationName,
+      );
+    }
+
+    assert(definitions.length == 1);
+    return definitions.first.type == OperationType.subscription;
   }
 }
